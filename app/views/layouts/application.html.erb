@@ -8,10 +8,12 @@
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag 'close_alert' %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
+    <%= render 'layouts/messages' %>
     <%= render 'layouts/navbar' %>
     <main class="container mx-auto mt-28 px-5">
       <%= yield %>
