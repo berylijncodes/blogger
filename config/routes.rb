@@ -8,4 +8,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "pages#home"
+
+  # Defines about pages route
+  get '/about', to: 'pages#about'
 end
