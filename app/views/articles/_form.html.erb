@@ -1,0 +1,36 @@
+<div class="flex items-center justify-center p-12 mb-16">
+  <div class="mx-auto w-full max-w-[550px]">
+    <%= form_with model: article do |form| %>
+      <div class="mb-3">
+        <div class="mb-3 block text-base font-medium text-[#07074D]">
+          <%= form.label :title %>
+        </div>
+        <div class="mb-3 block text-base font-medium text-[#07074D]">
+          <%= form.text_field :title, placeholder: "Title", class: "w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" %><br>
+          <% article.errors.full_messages_for(:title).each do |message|%>
+            <div class="text-red-700 text-xs">
+              <%= message %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <div class="mb-3 block text-base font-medium text-[#07074D]">
+          <%= form.label :body %>
+        </div>
+        <div class="mb-3 block text-base font-medium text-[#07074D]">
+          <%= form.text_area :body, rows: 10 , placeholder: "Write your article", class: "w-full resize-none rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"%>
+          <% article.errors.full_messages_for(:body).each do |message|%>
+            <div class="text-red-700 text-xs">
+              <%= message %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <div>
+        <%= form.submit class: "hover:shadow-form rounded-md bg-[#295D09] py-3 px-8 text-base font-semibold text-white outline-none"%>
+      </div>
+    <% end %>
+  </div>
+</div>
