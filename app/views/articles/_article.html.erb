@@ -11,7 +11,7 @@
       <h3 class="text-xl font-medium text-gray-900"><%= link_to article.title, article %></h3>
       <p class="mt-1 text-gray-500"><%= truncate(article.body, length: 100) %></p>
       <div class="mt-4 flex gap-2">
-        <span class="inline-flex items-center gap-1 rounded-full bg-blue-50 px-2 py-1 text-xs font-semibold text-blue-600">
+        <span class="inline-flex items-center gap-1 rounded-full bg-blue-50 px-2 py-1 text-xs font-semibold text-[#295D09]">
           <%= link_to "View", article_path(article) %>
         </span>
         <span class="inline-flex items-center gap-1 rounded-full bg-indigo-50 px-2 py-1 text-xs font-semibold text-indigo-600">
