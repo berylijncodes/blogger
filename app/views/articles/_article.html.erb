@@ -1,17 +1,30 @@
-<div id="<%= dom_id article %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Title:</strong>
-    <%= article.title %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Body:</strong>
-    <%= article.body %>
-  </p>
-
-  <% if action_name != "show" %>
-    <%= link_to "Show this article", article, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to "Edit this article", edit_article_path(article), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
-    <hr class="mt-6">
-  <% end %>
+<div class="grid grid-cols-1 gap-8 mt-8 mb-40 md:grid-cols-2 xl:grid-cols-3">
+<% @articles.each do |article| %>
+  <div class="mx-auto max-w-md overflow-hidden rounded-lg bg-white shadow">
+    <img
+      src="https://images.unsplash.com/photo-1552581234-26160f608093?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80"
+      class="aspect-video w-full object-cover"
+      alt=""
+    >
+    <div class="p-4">
+      <p class="my-2 text-sm text-primary-500"><%= article.user.username %><span class="text-[#295D09]">•</span> <time>Created <%= time_ago_in_words(article.created_at) %> ago, edited <%= time_ago_in_words(article.updated_at) %></time></p>
+      <h3 class="text-xl font-medium text-gray-900"><%= link_to article.title, article %></h3>
+      <p class="mt-1 text-gray-500"><%= truncate(article.body, length: 100) %></p>
+      <div class="mt-4 flex gap-2">
+        <span class="inline-flex items-center gap-1 rounded-full bg-blue-50 px-2 py-1 text-xs font-semibold text-[#295D09]">
+          <%= link_to "View", article_path(article) %>
+        </span>
+        <span class="inline-flex items-center gap-1 rounded-full bg-indigo-50 px-2 py-1 text-xs font-semibold text-indigo-600">
+          <%= link_to "Edit", edit_article_path(article) %>
+        </span>
+        <span class="inline-flex items-center gap-1 rounded-full bg-orange-50 px-2 py-1 text-xs font-semibold text-orange-600">
+          <%= link_to "Destroy", article_path(article), data: {
+                turbo_method: :delete,
+                turbo_confirm: "Are you sure?"
+              } %>
+        </span>
+      </div>
+    </div>
+  </div>
+<% end %>
 </div>
