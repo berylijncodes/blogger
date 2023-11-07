@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[ edit update show ]
 
+  def index
+    @users = User.all
+  end
+
   def new
     @user = User.new
   end
@@ -17,8 +21,8 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to article_url(@user), notice: "Welcome #{@user.username}, You have successfully signed up!" }
-        format.json { render :show, status: :created, location: @article }
+        format.html { redirect_to user_path(@user), notice: "Welcome #{@user.username}, You have successfully signed up!" }
+        format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @user.errors, status: :unprocessable_entity }
@@ -29,8 +33,8 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to article_url(@user), notice: "Your account was successfully updated." }
-        format.json { render :show, status: :ok, location: @article }
+        format.html { redirect_to users_url(@user), notice: "Your account was successfully updated." }
+        format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @user.errors, status: :unprocessable_entity }
