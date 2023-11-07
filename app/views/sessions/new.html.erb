@@ -1,0 +1,30 @@
+<div class="text-center">
+  <h1 class="text-center text-4xl mt-10 mb-4">Log in</h1>
+</div>
+
+<div class="flex items-center justify-center p-12 mb-16">
+  <div class="mx-auto w-full max-w-[550px]">
+    <%= form_with scope: :session, url: login_path do |form| %>
+      <div class="mb-3">
+        <div class="mb-3 block text-base font-medium text-[#07074D]">
+          <%= form.label :email %>
+        </div>
+        <div class="mb-3 block text-base font-medium text-[#07074D]">
+          <%= form.text_field :email, placeholder: "email@example.com", class: "w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" %><br>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <div class="mb-3 block text-base font-medium text-[#07074D]">
+          <%= form.label :password %>
+        </div>
+        <div class="mb-3 block text-base font-medium text-[#07074D]">
+          <%= form.password_field :password, placeholder: "Type your password", class: "w-full resize-none rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" %><br>
+        </div>
+      </div>
+      <div>
+        <%= form.submit "Log in", class: "cursor-pointer hover:shadow-form rounded-md bg-[#295D09] py-3 px-8 text-base font-semibold text-white outline-none" %>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -34,7 +34,7 @@
           <%= form.label :password %>
         </div>
         <div class="mb-3 block text-base font-medium text-[#07074D]">
-          <%= form.text_field :password, class: "w-full resize-none rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" %><br>
+          <%= form.password_field :password, class: "w-full resize-none rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" %><br>
           <% @user.errors.full_messages_for(:password).each do |message|%>
             <div class="text-red-700 text-xs">
               <%= message %>
